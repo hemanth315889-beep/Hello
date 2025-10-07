@@ -1,0 +1,16 @@
+This file documents the differences between the Gradle files in this project and a standard Android Studio project.
+
+**`build.gradle`**
+
+*   **Custom Repositories:** The project's `build.gradle` file includes several custom Maven repositories, specifically Aliyun repositories. This is a significant difference from a standard Android Studio project, which typically only includes `google()` and `mavenCentral()`.
+*   **Outdated Gradle Plugin:** The project uses version 3.6.1 of the Android Gradle Plugin, which is outdated. Modern Android Studio projects use a much newer version.
+*   **Variable for Gradle Version:** The Gradle plugin version is defined using a variable (`build_gradle_version`), which is a good practice but not always present in every project.
+
+**`settings.gradle`**
+
+*   **Older Structure:** The `settings.gradle` file is very basic and follows an older structure. It is missing the `pluginManagement` and `dependencyResolutionManagement` blocks that are now standard in modern Android Studio projects. These blocks are used to configure repositories for plugins and dependencies in a centralized way.
+*   **No Centralized Repository Configuration:** Because the `pluginManagement` and `dependencyResolutionManagement` blocks are missing, this project configures its repositories in the root `build.gradle` file, which is an older and less efficient approach.
+
+**`gradle.properties`**
+
+*   **AndroidX Disabled:** The `gradle.properties` file explicitly disables AndroidX by setting `android.useAndroidX` and `android.enableJetifier` to `false`. AndroidX is the standard library for modern Android development, so this is a major difference. This indicates that the project is either very old or has a specific reason for not using AndroidX.
